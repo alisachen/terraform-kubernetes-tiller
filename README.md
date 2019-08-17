@@ -24,6 +24,12 @@ module tiller {
 | name | Component name | string | `"tiller"` | no |
 | namespace | Namespace to where deploy tiller | string | n/a | yes |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| service\_account | a service account |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Commands
