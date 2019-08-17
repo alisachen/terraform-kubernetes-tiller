@@ -67,24 +67,24 @@ resource kubernetes_deployment tiller {
 
     selector {
       match_labels = {
-        app  = "helm"
-        name = "tiller"
+        app  = local.app
+        name = var.name
       }
     }
 
     template {
       metadata {
         labels = {
-          app  = "helm"
-          name = "tiller"
+          app  = local.app
+          name = var.name
         }
       }
 
       spec {
-        service_account_name = "tiller"
+        service_account_name = var.name
 
         container {
-          name              = "tiller"
+          name              = var.name
           image             = var.tiller_image
           image_pull_policy = "IfNotPresent"
 
