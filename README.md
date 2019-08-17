@@ -21,8 +21,15 @@ module tiller {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | automount\_service\_account\_token | Enable automatin mounting of the service account token | bool | `"true"` | no |
-| name | Component name | string | `"tiller"` | no |
+| component | Component name | string | `"helm"` | no |
+| name | Generic name | string | `"tiller"` | no |
 | namespace | Namespace to where deploy tiller | string | n/a | yes |
+| service\_namespaces | The ServiceAccounts to grant permissions to. Example ['helm'] | list(string) | n/a | yes |
+| tiller\_image | Tiller Docker image | string | `"gcr.io/kubernetes-helm/tiller:v2.14.2"` | no |
+| tiller\_max\_history | Tiller history to contain | string | `"200"` | no |
+| tiller\_replicas | Amound of replicas to deploy | string | `"1"` | no |
+| tiller\_service\_type | Type of Tiller's Kubernetes service object. | string | `"ClusterIP"` | no |
+| tiller\_version | Tiller version | string | `"v2.14.2"` | no |
 
 ## Outputs
 
@@ -47,3 +54,10 @@ release                        Create release version
 
 Submit a pull request
 
+## Validate creation of components
+
+```sh
+kubectl get serviceaccount <name> -o yaml
+kubectl get clusterrolebinding <name> -o yaml
+kubectl get deploy <name> -o yaml
+```
