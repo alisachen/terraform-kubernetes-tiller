@@ -6,10 +6,10 @@ Here's the gist of using it via github.
 
 ```terraform
 module tiller {
-  source     = "https://github.com/terraform-module/terraform-kubernetes-tiller.git?ref=v0.2.0"
+  source     = "github.com/terraform-module/terraform-kubernetes-tiller?ref=v2.2.0"
   namespace  = "helm"
-  apps       = var.apps
-  repository = data.helm_repository.stable.metadata.0.name
+  name = "tiller"
+  service_namespaces = ["helm", "tiller", "dev", "stage"]
 }
 ```
 
