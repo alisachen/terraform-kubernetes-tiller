@@ -13,8 +13,8 @@ hooks: ## Commit hooks setup
 validate: ## Validate with pre-commit hooks
 	@pre-commit run --all-files
 
-changelog:
-	git-chglog -o CHANGELOG.md --next-tag `bin/semtag final -s minor -o`
+changelog: ## Update changelog
+	git-chglog -o CHANGELOG.md --next-tag `semtag final -s minor -o`
 
 release: ## Create release version
-	@bin/semtag final -s minor
+	semtag final -s minor
