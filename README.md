@@ -20,6 +20,8 @@ module tiller {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| automount\_service\_account\_token | Enable automatin mounting of the service account token | bool | `"true"` | no |
+| name | Component name | string | `"tiller"` | no |
 | namespace | Namespace to where deploy tiller | string | n/a | yes |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
